@@ -1,0 +1,8 @@
+id:
+
+status:
+	okay       /* running */
+	starting   /* booting */
+	offline    /* not running */
+	starting   /* booting up */`:x
+
