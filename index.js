@@ -9,10 +9,22 @@ app.use(express.static('public'))
 app.get('/instances', (req, res, next) => {
 	db.query('SELECT * FROM instances', (err, result) => {
 		if (err) {
-			next(err)
+			return next(err)
 		}
-		console.log(result.rows);
 		res.send(result.rows)
+	})
+})
+
+app.post('/instances', (req, res, next) => {
+	let query = { 
+		text: "INSERT INTO instances(status) VALUES ($1)",
+		values: ['starting']
+	}
+	db.query(query, (err, result) => {
+		if (err) {
+			return next(err)
+		}
+		res.send(result);
 	})
 })
 
