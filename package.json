@@ -1,0 +1,15 @@
+{
+  "name": "private-cloud-webapp",
+  "version": "1.0.0",
+  "description": "Custom Implementation of a Cloud Service Using Docker on a Private Machine",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Jason A. Godmere",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "pg": "^8.8.0"
+  }
+}
