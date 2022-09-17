@@ -22,6 +22,9 @@ function delBtnClick(id) {
 		}
 	});
 }
+function refreshTable() {
+	document.getElementById('refresh').click();
+}
 
 function updateTable(data) {
 	tableData = data;
@@ -55,7 +58,7 @@ function updateTable(data) {
 						url: server+'/instances/'+instance_id,
 						type: 'DELETE',
 						success: function(result) {
-							document.getElementById('refresh').click();
+							refreshTable();
 							alert('Successfully deleted ' + instance_id);
 						}
 					});
@@ -75,6 +78,7 @@ function updateTable(data) {
 $('document').ready(function() {
 $('#create-instance').click(function() {
 	$.post(server+'/instances', {}, function(data, status) {
+		refreshTable();
 		console.log(data);
 		console.log(status);
 	});
@@ -101,4 +105,6 @@ $('.instance-delBtn').on('click', function(event) {
 		}
 	});
 });
+// startup
+refreshTable();
 });
